@@ -1,3 +1,13 @@
+/*
+ * jQuery Character Counter plugin
+ * 
+ * @author Mark Embling
+ * 
+ * Copyright © Mark Embling 2017
+ * Released under the MIT license
+ * https://github.com/markembling/jquery-charactercounter-plugin/blob/master/LICENSE
+ */
+
 ;(function ($) {
 
     var CharacterCounter = function (element, options) {
