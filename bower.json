@@ -1,0 +1,24 @@
+{
+  "name": "jquery-charactercounter-plugin",
+  "homepage": "https://github.com/markembling/jquery-charactercounter-plugin",
+  "authors": [
+    "Mark Embling"
+  ],
+  "description": "jQuery plugin for counting and displaying the available number of characters for a textarea",
+  "main": "",
+  "keywords": [
+    "character",
+    "count",
+    "counter",
+    "jquery",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
