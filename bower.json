@@ -5,7 +5,12 @@
     "Mark Embling"
   ],
   "description": "jQuery plugin for counting and displaying the available number of characters for a textarea",
-  "main": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markembling/jquery-charactercounter-plugin.git"
+  },
+  "main": "jquery.charactercounter.js",
   "keywords": [
     "character",
     "count",
@@ -13,7 +18,6 @@
     "jquery",
     "plugin"
   ],
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
