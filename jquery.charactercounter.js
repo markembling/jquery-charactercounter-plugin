@@ -1,4 +1,5 @@
-(function ($) {
+;(function ($) {
+
     var CharacterCounter = function (element, options) {
         this.options = null;
         this.$inputElement = null;
@@ -173,5 +174,6 @@
                 cr[opt]();
             }
         });
+
     };
 }(jQuery));
