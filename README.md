@@ -56,3 +56,33 @@ These options can be specified to customise the behaviour of the character count
 | `overrunPreCountMessage` | Same as `preCountMessage` but used once the user has ran over the allocated character count. | `null`
 | `overrunPostCountMessageSingular` | Same as `overrunPostCountMessage` but for the singular case. If not provided, `overrunPostCountMessage` will be used. | `null`
 | `overrunPreCountMessageSingular` | Same as `overrunPreCountMessage` but for the singular case. If not provided, `overrunPreCountMessage` will be used. | `null`
+
+Options can be specified in one of two ways:
+
+ 1. Using an object when initialising the plugin
+ 2. Via data attributes
+
+ Both approaches may be used together but in the event an option is specified both in the options object and as a data attribute, note that the data attribute will take precedence.
+
+#### Specifying options via object
+
+You can provide any of the options shown in the table above in an object which should be passed when initialising the plugin.
+
+    $('#example-opts-obj').characterCounter({
+        postCountMessage: "characters left",
+        postCountMessageSingular: "character left",
+        zeroRemainingMessage: "No characters left",
+        overrunPreCountMessage: "Please remove",
+        overrunPostCountMessage: "characters",
+        overrunPostCountMessageSingular: "character",
+        positiveOverruns: true
+    });
+
+#### Specifying options via data attributes
+
+Options can be provided as data attributes on the textarea being initialised. These should all be in the format `data-{option}` where `{option}` is the option name from the table above, lowercased and with words separated with dashes.
+
+    <textarea id="example-opts-data"
+              data-max-chars="200"
+              data-counter-element="#counter"
+              data-positive-overruns="true></textarea>
