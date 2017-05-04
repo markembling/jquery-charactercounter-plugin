@@ -49,14 +49,6 @@ By default, the minimum is zero and the maximum is infinite, so it will never fa
 
 You can add text to the counter, both before the number and after.
 
-This example will give the following behaviour:
-
- - "200 characters left" when empty
- - "150 characters left" when filled below the maximum
- - "No characters left" when exactly 200 characters have been entered
- - "Please remove 15 characters" when filled with 215 characters
- - In both the valid and invalid states, singular options have been given to prevent messages like "1 characters left"
-
     $('#example-text').characterCounter({
         maxChars: 200,
         postCountMessage: "characters left",
@@ -67,6 +59,14 @@ This example will give the following behaviour:
         overrunPostCountMessageSingular: "character",
         positiveOverruns: true
     });
+
+This example will give the following behaviour:
+
+ - "200 characters left" when empty
+ - "150 characters left" when filled below the maximum
+ - "No characters left" when exactly 200 characters have been entered
+ - "Please remove 15 characters" when filled with 215 characters
+ - In both the valid and invalid states, singular options have been given to prevent messages like "1 characters left"
 
 See the options section below for full details on what options are available, specifying options via object and data attributes, and default option values.
 
