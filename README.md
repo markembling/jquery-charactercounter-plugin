@@ -12,6 +12,19 @@ Or by downloading the `jquery.charactercounter.js` file directly and placing in 
 
 ## Usage
 
+After including the plugin, use it by initialising it on the textarea(s) you wish to add character counting for.
+
+    <textarea id="example1"></textarea>
+
+    $('#example1').characterCounter();
+
+By default, this will create a new `div` element following the text area which will show the character count for that textbox.
+
+### Providing a minimum and maximum character count
+
+TODO - description of applying a min/max character count to affect validity
+
+<!--
 After including the plugin, use it by first adding some data attributes to your textarea and adding an element which will serve as the container for your counter. Your counter element can be anything you like and styled however you like, with other classes and so on. The content will be updated using jQuery's `text()` method.
 
     <textarea id="example1"
@@ -32,8 +45,29 @@ Then just initialise the plugin, passing it any appropriate options if you wish 
         overrunPostCountMessageSingular: "character",
         positiveOverruns: true
     });
+-->
 
-### Options
+By default, the classes applied by the plugin will be as follows but you can customise these to any classes you wish (see options below).
+
+| State | Class
+| ----- | -----
+| Character count element (always applied) | `me-character-counter`
+| Valid modifier - i.e. count is within any set minimum and maximums | `me-character-counter_valid`
+| Invalid modifier - i.e. count is outside any set minimum and maximums | `me-character-counter_valid`
+
+### Move and customise the character counter
+
+You can use any element on your page as the character counter instead of having the plugin create one for you. Simply create the character counter and provide a selector to the plugin using the `counterElement` option (see below for full details of options and specifying options).
+
+    <span id="example2-count"></span>
+    <textarea id="example2"
+              data-counter-element="#example2-count"></textarea>
+    
+    $('#example2').characterCounter();
+
+The element can be anything, the plugin will simply use jQuery's `text()` method to swap out the contents with the appropriate count and message. It will also add/switch out the element's classes according to the validity of the entered text when compared to the counter. You can style the classes however you wish to get the behaviour you're looking for, and you can apply any of your own classes in addition if you wish - the plugin will not touch those.
+
+## Options
 
 These options can be specified to customise the behaviour of the character counter. The default values are also given below.
 
@@ -64,7 +98,7 @@ Options can be specified in one of two ways:
 
  Both approaches may be used together but in the event an option is specified both in the options object and as a data attribute, note that the data attribute will take precedence.
 
-#### Specifying options via object
+### Specifying options via object
 
 You can provide any of the options shown in the table above in an object which should be passed when initialising the plugin.
 
@@ -78,7 +112,7 @@ You can provide any of the options shown in the table above in an object which s
         positiveOverruns: true
     });
 
-#### Specifying options via data attributes
+### Specifying options via data attributes
 
 Options can be provided as data attributes on the textarea being initialised. These should all be in the format `data-{option}` where `{option}` is the option name from the table above, lowercased and with words separated with dashes.
 
