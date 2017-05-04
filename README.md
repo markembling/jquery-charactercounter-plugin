@@ -47,7 +47,22 @@ Then just initialise the plugin, passing it any appropriate options if you wish 
     });
 -->
 
-By default, the classes applied by the plugin will be as follows but you can customise these to any classes you wish (see options below).
+### Move and customise the character counter
+
+#### Use a different element
+
+You can use any element on your page as the character counter instead of having the plugin create one for you. Simply create the character counter and provide a selector to the plugin using the `counterElement` option (see below for full details of options and specifying options).
+
+    <!-- This could be anywhere on the page; it doesn't have to be nearby -->
+    <span id="example2-count"></span>
+    <textarea id="example2"
+              data-counter-element="#example2-count"></textarea>
+
+The element can be anything, the plugin will simply use jQuery's `text()` method to swap out the contents with the appropriate count and message. It will also add/switch out the element's classes according to the validity of the length of the entered text however you can apply any of your own classes to your counter element in addition if you wish - the plugin will not interfere with those.
+
+#### Styling
+
+The plugin applies some classes which you're able to target in your CSS to make the counter look how you wish. By default, the classes applied by the plugin will be as follows but you can customise these to any class names you wish (see options below).
 
 | State | Class
 | ----- | -----
@@ -55,17 +70,7 @@ By default, the classes applied by the plugin will be as follows but you can cus
 | Valid modifier - i.e. count is within any set minimum and maximums | `me-character-counter_valid`
 | Invalid modifier - i.e. count is outside any set minimum and maximums | `me-character-counter_valid`
 
-### Move and customise the character counter
-
-You can use any element on your page as the character counter instead of having the plugin create one for you. Simply create the character counter and provide a selector to the plugin using the `counterElement` option (see below for full details of options and specifying options).
-
-    <span id="example2-count"></span>
-    <textarea id="example2"
-              data-counter-element="#example2-count"></textarea>
-    
-    $('#example2').characterCounter();
-
-The element can be anything, the plugin will simply use jQuery's `text()` method to swap out the contents with the appropriate count and message. It will also add/switch out the element's classes according to the validity of the entered text when compared to the counter. You can style the classes however you wish to get the behaviour you're looking for, and you can apply any of your own classes in addition if you wish - the plugin will not touch those.
+The plugin will not add any styling of its own, and simply swaps out the classes depending on its state.
 
 ## Options
 
