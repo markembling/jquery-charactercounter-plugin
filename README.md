@@ -80,7 +80,7 @@ The plugin applies some classes which you're able to target in your CSS to make 
 | ----- | -----
 | Character count element (always applied) | `me-character-counter`
 | Valid modifier - i.e. count is within any set minimum and maximums | `me-character-counter_valid`
-| Invalid modifier - i.e. count is outside any set minimum and maximums | `me-character-counter_valid`
+| Invalid modifier - i.e. count is outside any set minimum and maximums | `me-character-counter_invalid`
 
 The plugin will not add any styling of its own, and simply swaps out the classes depending on its state. Style however you like.
 
