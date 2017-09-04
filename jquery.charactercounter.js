@@ -77,6 +77,26 @@
         return dataOptions;
     };
 
+    /**
+     * Determine if the character counter is in a valid state (i.e. the number of characters entered
+     * is within the min/max specified for this counter.
+     * @returns {boolean}
+     */
+    CharacterCounter.prototype.isValid = function () {
+        var charsUsed = this.countCharactersUsed();
+        var charsRemaining = this.options.maxChars - charsUsed;
+        return charsRemaining >= 0 && charsUsed >= this.options.minChars;
+    };
+
+    /**
+     * Get the value for the named option.
+     * @param {string} option - Option name
+     * @returns The option value
+     */
+    CharacterCounter.prototype.getOption = function (option) {
+        return this.options[option];
+    };
+
     CharacterCounter.prototype.countCharactersUsed = function () {
         var text = this.$inputElement.val();
         var charsUsed = text.length;
@@ -95,10 +115,10 @@
     };
 
     CharacterCounter.prototype._onInput = function () {
+        var valid = this.isValid();
         var charsUsed = this.countCharactersUsed();
         var charsRemaining = this.options.maxChars - charsUsed;
 
-        var valid = charsRemaining >= 0 && charsUsed >= this.options.minChars;
         var message = this.calculateMessage(charsUsed, charsRemaining);
 
         this.setText(message);
@@ -168,22 +188,47 @@
     //
 
     $.fn.characterCounter = function (opt) {
-        return this.each(function () {
-            var $this = $(this);
-
-            // Check and set the character counter instance
-            var cr = $this.data("markembling.characterCounter");
+        /**
+         * Initialises a character counter for the given element if one is not already
+         * assigned, then returns the counter.
+         * @param {object} element - DOM element
+         * @returns {CharacterCounter} The character counter associated with the element
+         */
+        function initCharacterCounterForElement(element) {
+            var $element = $(element);
+            var cr = $element.data("markembling.characterCounter");
             if (!cr) {
                 var options = typeof opt == 'object' && opt;
-                cr = new CharacterCounter(this, options);
-                $this.data("markembling.characterCounter", cr);
+                cr = new CharacterCounter($element, options);
+                $element.data("markembling.characterCounter", cr);
             }
+            return cr;
+        };
 
-            // Invoke the action, if any
-            if (typeof opt == "string") {
-                cr[opt]();
-            }
+        // If the first argument is a string, then this is a function call.
+        // Ensure the character counter is initialised, and then call the function (if available),
+        // returning the result.
+        if (typeof arguments[0] == "string") {
+            var funcName = arguments[0];
+            var funcArgs = Array.prototype.slice.call(arguments, 1);
+            var returnValue;
+
+            this.each(function() {
+                var cr = initCharacterCounterForElement(this);
+                if (typeof cr[funcName] === "function") {
+                    returnValue = cr[funcName](funcArgs);
+                } else {
+                    throw new Error("No function named " + funcName + " exists.");
+                }
+            });
+
+            return returnValue !== undefined ? returnValue : this;
+        }
+
+        // If this is not a function call, just initialise the character counter and return the
+        // result of this.each, in typical jQuery plugin fashion.
+        return this.each(function () {
+            initCharacterCounterForElement(this);
         });
-
     };
 }(jQuery));

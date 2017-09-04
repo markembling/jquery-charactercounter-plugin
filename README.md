@@ -150,3 +150,21 @@ Options can be provided as data attributes on the textarea being initialised. Th
               data-max-chars="200"
               data-counter-element="#counter"
               data-positive-overruns="true></textarea>
+
+## Methods
+
+These methods can be called via the jQuery plugin. These are useful if, for example, you need to obtain the current state of the counter from your own code.
+
+| Function | Description | Arguments
+| ------ | ----------- | -------
+| `isValid` | Determines whether or not the counter is in the 'valid' state. | `(none)`
+| `getOption` | Provides the means to retrieve option values from the counter. | `option` (`string`) - The required option.
+
+### Calling methods
+
+Methods can be called by passing them in as the first argument to the `characterCounter` function. Method arguments can be provided as subsequent arguments.
+
+    var ... = $('#example-text').characterCounter('isValid');
+    var ... = $('#example-text').characterCounter('getOption', 'maxChars');
+
+Note that when methods are called, the return value from the method (if any) will be given and further calls to the plugin or jQuery may not be chained.
