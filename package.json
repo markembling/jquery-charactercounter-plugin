@@ -1,0 +1,26 @@
+{
+  "name": "jquery-charactercounter-plugin",
+  "version": "1.1.1",
+  "description": "jQuery plugin for counting and displaying the available number of characters for a textarea.",
+  "main": "./jquery.charactercounter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markembling/jquery-charactercounter-plugin.git"
+  },
+  "keywords": [
+    "character",
+    "count",
+    "counter",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "author": "Mark Embling",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markembling/jquery-charactercounter-plugin/issues"
+  },
+  "homepage": "https://github.com/markembling/jquery-charactercounter-plugin#readme"
+}

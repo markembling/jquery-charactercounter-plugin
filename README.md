@@ -4,11 +4,20 @@ This jQuery plugin provides the ability to associate a character counter with a 
 
 ## Install
 
-Install either via Bower:
+### Package Managers
 
+You can install the plugin using NPM or Bower.
+
+    npm install jquery-charactercounter-plugin
     bower install jquery-charactercounter-plugin
 
-Or by downloading the `jquery.charactercounter.js` file directly and placing in your chosen location. Ensure you also have jQuery installed if not using Bower.
+### Manually
+
+If you'd prefer to install manually, download and include the `jquery.charactercounter.js` file in your project.
+
+    <script src="jquery.charactercounter.js"></script>
+
+Ensure jQuery is also available and included before the plugin JS file.
 
 ## Usage
 
